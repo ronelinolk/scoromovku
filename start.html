@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизація</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+        label, input {
+            margin: 10px 0;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Авторизуйтесь</h1>
+    <form id="authForm">
+        <label for="name">Введіть ваше ім'я:</label>
+        <input type="text" id="name" name="name" required>
+        <input type="submit" value="Авторизуватись">
+    </form>
+
+    <script>
+        document.getElementById('authForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const allowedNames = [
+                'Софія', 'софія', 'соня', 'Соня', 'сонічка', 'Сонічка', 
+                'Софа', 'софа', 'Роман', 'Рома', 'роман', 'рома'
+            ];
+            const name = document.getElementById('name').value.trim();
+            if (allowedNames.includes(name)) {
+                window.location.href = 'index.html';
+            } else {
+                alert('Введене ім\'я не дозволене.');
+            }
+        });
+    </script>
+</body>
+</html>
